@@ -21,6 +21,10 @@ from ray.tune.schedulers import ASHAScheduler
 from ray.tune.suggest import skopt
 import torch
 
+import sys
+module_path = '/home/kabird/STNDT' 
+if module_path not in sys.path:
+    sys.path.append(module_path)
 from third_party.src.tune_models import tuneNDT
 
 # from third_party.src.defaults import DEFAULT_CONFIG_DIR

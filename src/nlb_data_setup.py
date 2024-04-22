@@ -9,9 +9,9 @@ import argparse
 import logging
 logging.basicConfig(level=logging.INFO)
 
-from third_party.nlb_tools.nwb_interface import NWBDataset
-from third_party.nlb_tools.make_tensors import make_train_input_tensors, make_eval_input_tensors, make_eval_target_tensors, save_to_h5, combine_h5
-from third_party.nlb_tools.evaluation import evaluate
+from nlb_tools.nwb_interface import NWBDataset
+from nlb_tools.make_tensors import make_train_input_tensors, make_eval_input_tensors, make_eval_target_tensors, save_to_h5, combine_h5
+from nlb_tools.evaluation import evaluate
 
 # # If necessary, download datasets from DANDI and put them in './data/'
 # !pip install dandi
@@ -46,13 +46,14 @@ def main():
     parser = get_parser()
     args = parser.parse_args()
     dataset_name = vars(args)['dataset-name']
-    datapath_dict = {'mc_maze': './data/000128/sub-Jenkins/',
-                     'mc_maze_large': './data/000138/sub-Jenkins/',
-                     'mc_maze_medium': './data/000139/sub-Jenkins/',
-                     'mc_maze_small': './data/000140/sub-Jenkins/',
-                     'mc_rtt': './data/000129/sub-Indy/',
-                     'area2_bump': './data/000127/sub-Han/',
-                     'dmfc_rsg': './data/000130/sub-Haydn/',
+    data_path_base = '/home/kabird/datasets'
+    datapath_dict = {'mc_maze': f'{data_path_base}/000128/sub-Jenkins/',
+                     'mc_maze_large': f'{data_path_base}/000138/sub-Jenkins/',
+                     'mc_maze_medium': f'{data_path_base}/000139/sub-Jenkins/',
+                     'mc_maze_small': f'{data_path_base}/000140/sub-Jenkins/',
+                     'mc_rtt': f'{data_path_base}/000129/sub-Indy/',
+                     'area2_bump': f'{data_path_base}/000127/sub-Han/',
+                     'dmfc_rsg': f'{data_path_base}/000130/sub-Haydn/',
                      }
     datapath = datapath_dict[f'{dataset_name}']
     ## Load data from NWB file:
@@ -62,6 +63,7 @@ def main():
     # Choose bin width and resample
     bin_width = 5
     dataset.resample(bin_width)
+    K_values = (2**np.arange(2,15)).astype(int)
 
     # Create suffix for group naming later
     suffix = '' if (bin_width == 5) else f'_{int(bin_width)}'
@@ -75,16 +77,17 @@ def main():
         train_split = 'train' if (phase == 'val') else ['train', 'val']
         train_dict = make_train_input_tensors(dataset, dataset_name=dataset_name, trial_split=train_split, 
                                                 include_behavior=True, include_forward_pred=True, save_file=True,
-                                                save_path=f"./data/{dataset_name}_{'train' if phase=='val' else 'trainval'}.h5")
+                                                save_path=f"{data_path_base}/{dataset_name}_{'train' if phase=='val' else 'trainval'}.h5",
+                                                fewshot_Kvalues=K_values)
 
         ## Make eval data
         # Split for evaluation is same as phase name
         eval_split = phase
         # Make data tensors
         eval_dict = make_eval_input_tensors(dataset, dataset_name=dataset_name, trial_split=eval_split, save_file=True,
-                                            save_path=f"./data/{dataset_name}_{phase}.h5")
+                                            save_path=f"{data_path_base}/{dataset_name}_{phase}.h5")
 
-        combine_h5([f"./data/{dataset_name}_{'train' if phase=='val' else 'trainval'}.h5", f"./data/{dataset_name}_{phase}.h5"], save_path=f"./data/{dataset_name}{'' if phase=='val' else '_test'}_full.h5")
+        combine_h5([f"{data_path_base}/{dataset_name}_{'train' if phase=='val' else 'trainval'}.h5", f"{data_path_base}/{dataset_name}_{phase}.h5"], save_path=f"{data_path_base}/{dataset_name}{'' if phase=='val' else '_test'}_full.h5")
 
     ## Make data to evaluate predictions with
     # Reset logging level to hide excessive info messages
@@ -95,7 +98,7 @@ def main():
     if phase == 'val':
         # Note that the RTT task is not well suited to trial averaging, so PSTHs are not made for it
         target_dict = make_eval_target_tensors(dataset, dataset_name=dataset_name, train_trial_split='train', eval_trial_split='val', 
-                                                include_psth=True, save_file=True, save_path=f"./data/{dataset_name}_target.h5")
+                                                include_psth=True, save_file=True, save_path=f"{data_path_base}/{dataset_name}_target.h5")
 
 
 if __name__ == "__main__":

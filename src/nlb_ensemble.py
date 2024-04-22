@@ -5,7 +5,7 @@ import os
 import os.path as osp
 from pathlib import Path
 import sys
-module_path = os.path.abspath(os.path.join('..'))
+module_path = '/home/kabird/STNDT' #os.path.abspath(os.path.join('..'))
 if module_path not in sys.path:
     sys.path.append(module_path)
 import time
@@ -18,15 +18,16 @@ import torch.nn.functional as f
 from torch.utils import data
 import argparse
 
-from third_party.nlb_tools.evaluation import evaluate
-from third_party.nlb_tools.make_tensors import save_to_h5
+from nlb_tools.evaluation import evaluate
+from nlb_tools.make_tensors import save_to_h5
 from src.run import prepare_config
 from src.runner import Runner
 from src.dataset import SpikesDataset, DATASET_MODES
 from src.mask import UNMASKED_LABEL
 from src.analyze_utils import init_by_ckpt
 
-DATA_DIR = Path("./data/")
+data_path_base = '/home/kabird/datasets'
+DATA_DIR = Path(f"{data_path_base}/")
 ENSEMBLE_RESULTS_DIR = Path("./ensemble_results/")
 RAY_RESULTS_DIR = Path("./ray_results/")
 
@@ -59,8 +60,12 @@ def main():
     target_path = osp.join(DATA_DIR, f"{variant}_target.h5")
 
     with h5py.File(target_path, 'r') as h5file:
-        target_dict = {f'{variant}': {key: h5file[f'{variant}'][key][()].astype(np.bool_) if key == 'train_decode_mask' or key == 'eval_decode_mask'
-                        else h5file[f'{variant}'][key][()].astype(np.object) if key == 'eval_cond_idx'
+        # for key,val in h5file[f'{variant}'].items():
+        #     print(key,val[()].shape,val[()].dtype)
+        #     if key != 'train_decode_mask' and key != 'eval_decode_mask' and key != 'eval_cond_idx' and key != 'eval_jitter':
+        #         print('else:',h5file[f'{variant}'][key][()].astype(np.float32))
+        target_dict = {f'{variant}': {key: h5file[f'{variant}'][key][()].astype(np.bool_) if 'decode_mask' in key
+                        else h5file[f'{variant}'][key][()].astype(np.object) if 'idx' in key
                         else h5file[f'{variant}'][key][()].astype(np.int_) if key == 'eval_jitter'
                         else h5file[f'{variant}'][key][()].astype(np.float32)
                         for key in h5file[f'{variant}'].keys()
