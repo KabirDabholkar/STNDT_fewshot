@@ -8,7 +8,7 @@ TENSORBOARD_DIR: "./tb/dmfc_rsg/"
 LOG_DIR: "./logs/dmfc_rsg/"
 
 DATA:
-  DATAPATH: "/home/STNDT/data/"
+  DATAPATH: "/home/kabird/datasets/"
   TRAIN_FILENAME: 'dmfc_rsg_full.h5'
   VAL_FILENAME: 'dmfc_rsg_full.h5'
 

@@ -20,6 +20,9 @@ from ray import tune
 from ray.tune.schedulers import ASHAScheduler
 from ray.tune.suggest import skopt
 import torch
+import os 
+
+os.environ["CUDA_VISIBLE_DEVICES"]="1,2,3" # keeping cuda:0 free for other stuff
 
 import sys
 module_path = '/home/kabird/STNDT' 
@@ -71,7 +74,7 @@ def get_parser():
     parser.add_argument(
         "--gpus-per-worker", "-g",
         type=float,
-        default=0.5
+        default=1
     )
 
     parser.add_argument(

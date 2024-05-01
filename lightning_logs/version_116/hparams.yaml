@@ -1,0 +1,7 @@
+in_features: 182
+out_features: 45
+lr_init: 0.01
+lr_adam_beta1: 0.9
+lr_adam_beta2: 0.999
+lr_adam_epsilon: 1.0e-08
+weight_decay: 0.0

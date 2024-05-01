@@ -25,18 +25,35 @@ from third_party.src.utils import get_inverse_sqrt_schedule
 from src.model import STNDT
 from src.dataset import DATASET_MODES, SpikesDataset
 from src.mask import Masker, UNMASKED_LABEL, DEFAULT_MASK_VAL
+from src.utils import print_gpu_memory_usage
 
 """
 Runner class for STNDT
 """
 
+# def get_lightest_gpus(num_gpus):
+#     # TODO update with better CUDA_VISIBLE_DEVICES support (or just use ray)
+#     if torch.cuda.device_count() == 1:
+#         return [0]
+#     os.system('nvidia-smi -q -d Memory |grep -A4 GPU|grep Free >tmp')
+#     memory_available = [int(x.split()[2]) for x in open('tmp', 'r').readlines()]
+#     return np.argsort(memory_available)[-num_gpus:].tolist()
 def get_lightest_gpus(num_gpus):
-    # TODO update with better CUDA_VISIBLE_DEVICES support (or just use ray)
-    if torch.cuda.device_count() == 1:
-        return [0]
-    os.system('nvidia-smi -q -d Memory |grep -A4 GPU|grep Free >tmp')
-    memory_available = [int(x.split()[2]) for x in open('tmp', 'r').readlines()]
-    return np.argsort(memory_available)[-num_gpus:].tolist()
+    if not torch.cuda.is_available():
+        return []  # No GPUs available
+
+    # Get available memory for each GPU
+    memory_available = []
+    for i in range(torch.cuda.device_count()):
+        with torch.cuda.device(i):
+            mem_reserved = torch.cuda.memory_reserved()
+            mem_allocated = torch.cuda.memory_allocated()
+            mem_free = torch.cuda.get_device_properties(i).total_memory - mem_allocated - mem_reserved
+            memory_available.append(mem_free)
+
+    # Sort and return indices of lightest GPUs
+    return [0] #sorted(range(len(memory_available)), key=lambda k: memory_available[k])[:num_gpus]
+
 
 def exp_smooth(new_metric, old_metric, mu=0.5):
     r""" Higher mu is smoother """
@@ -752,16 +769,51 @@ class Runner:
                     heldout_spikes = None
                     forward_spikes = None
                 labels = spikes # i.e. predict everything
-                loss, _, _, batch_rates, batch_attn_list, batch_layer_outputs = self.model(
-                    spikes,
-                    spikes,
-                    contrast_src1=None,
-                    contrast_src2=None,
-                    val_phase=True,
-                    passthrough=True,
-                    return_outputs=True,
-                    return_weights=True,
-                )
+                # loss, _, _, batch_rates, batch_attn_list, batch_layer_outputs = self.model(
+                #     spikes,
+                #     spikes,
+                #     contrast_src1=None,
+                #     contrast_src2=None,
+                #     val_phase=True,
+                #     passthrough=True,
+                #     return_outputs=True,
+                #     return_weights=True,
+                # )
+                max_batch_size = 32  # Define the maximum batch size that fits in memory
+                batch_size = max_batch_size
+                success = False
+                print('Inside runner.get_rates')
+                print_gpu_memory_usage(vars())
+                while not success and batch_size > 1:
+                    try:
+                        loss, _, _, batch_rates, batch_attn_list, batch_layer_outputs = self.model(
+                            spikes,
+                            spikes,
+                            contrast_src1=None,
+                            contrast_src2=None,
+                            val_phase=True,
+                            passthrough=True,
+                            return_outputs=True,
+                            return_weights=True,
+                            batch_size=batch_size  # Pass the current batch size
+                        )
+                        success = True
+                        batch_rates = batch_rates.to('cpu')
+                        batch_attn_list = [tuple([b_.to('cpu') for b_ in b]) for b in batch_attn_list]
+                        batch_layer_outputs = batch_layer_outputs.to('cpu')
+                        
+                    except MemoryError:
+                        print(f"MemoryError: Reducing batch size to {batch_size // 2}")
+                        batch_size //= 2  # Halve the batch size
+
+                # Concatenate the data if batch size was reduced
+                if batch_size < max_batch_size:
+                    # Concatenate the outputs
+                    loss = torch.cat(loss, dim=0)
+                    batch_rates = torch.cat(batch_rates, dim=0)
+                    batch_attn_list = torch.cat(batch_attn_list, dim=0)
+                    batch_layer_outputs = torch.cat(batch_layer_outputs, dim=0)
+
                 losses.append(loss.mean().item())
                 pred_rates.append(batch_rates)
                 batch_s_attn_list = [layer_tuple[0] for layer_tuple in batch_attn_list]

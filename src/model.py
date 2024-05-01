@@ -449,7 +449,7 @@ class STNDT(nn.Module):
         logits = logits / self.temperature
         return logits, labels
 
-    def forward(self, src, mask_labels, contrast_src1=None, contrast_src2=None, val_phase=False, **kwargs):
+    def forward(self, src, mask_labels, contrast_src1=None, contrast_src2=None, val_phase=False, return_encoder_output = False,**kwargs):
         src = src.float()
         r"""
         Forward pass of STNDT.
@@ -573,14 +573,17 @@ class STNDT(nn.Module):
                 decoder_rates,
             )
         else:
-            return (
+            to_return = [
                 loss,
                 masked_decoder_loss,
                 contrast_loss,
                 decoder_rates,
                 layer_weights,
                 layer_outputs,
-            )
+            ]
+            if return_encoder_output:
+                to_return.append(encoder_output)
+            return tuple(to_return)
 
 
 class PositionalEncoding(nn.Module):
