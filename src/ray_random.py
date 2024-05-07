@@ -74,7 +74,7 @@ def get_parser():
     parser.add_argument(
         "--gpus-per-worker", "-g",
         type=float,
-        default=1
+        default=0.5
     )
 
     parser.add_argument(

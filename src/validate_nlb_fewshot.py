@@ -19,10 +19,12 @@ import torch
 import torch.nn.functional as f
 from torch.utils import data
 import argparse
-
+from typing import Any
+from functools import partial
 
 from nlb_tools.fewshot_utils import result_dict_to_pandas
 from nlb_tools.evaluation import evaluate
+from nlb_tools.load_and_save_latents import run_nlb_evaluation_protocol
 from nlb_tools.make_tensors import save_to_h5, make_train_input_tensors, h5_to_dict
 from src.run import prepare_config
 from src.runner import Runner
@@ -199,7 +201,7 @@ def main():
                 spikes = eval_spikes_heldin
                 spikes = torch.cat([spikes, torch.zeros_like(heldout_spikes)[:eval_trials]], -1)
                 spikes = torch.cat([spikes, torch.zeros_like(forward_spikes)[:eval_trials]], 1)
-                
+                print('spikes shape',spikes.shape)
                 max_batch_size = 8  # Define the maximum batch size that fits in memory
                 batch_size = max_batch_size
                 success = False
@@ -379,9 +381,63 @@ def main():
                 
     
                 
+def run_model_on_numpy(
+        model: Any,
+        spikes_heldin: np.ndarray,
+        spikes_full_shape: tuple,
+        batch_size: int = 6
+        ):
+    n_trials,small_t,small_n = spikes_heldin.shape
     
+    spikes = np.zeros((n_trials,*spikes_full_shape[1:]))
+    spikes[:,:small_t,:small_n] = spikes_heldin
+    spikes = torch.tensor(spikes)
+    print('spikes shape',spikes.shape)
+    all_outputs = [model(
+                            spike_split.to(model.device),
+                            spike_split.to(model.device),
+                            contrast_src1=None,
+                            contrast_src2=None,
+                            val_phase=True,
+                            passthrough=True,
+                            return_outputs=True,
+                            return_weights=True,
+                            return_encoder_output = True,
+                    ) for spike_split in torch.split(spikes,spikes.shape[0]//batch_size)]
+    encoder_output = [batch[6].detach().cpu().numpy().swapaxes(0,1) for batch in all_outputs]
+    # print([thing.shape for thing in encoder_output])
+    encoder_output = np.concatenate(encoder_output,axis=0)
+    rate_predictions = [batch[3].detach().cpu().numpy() for batch in all_outputs]
+    rate_predictions = np.concatenate(rate_predictions,axis=0)
+    rate_predictions = np.exp(rate_predictions)
+    return rate_predictions, encoder_output
     
+def main2():
+    variant = 'mc_maze'
+    ray_results_dir = osp.join(RAY_RESULTS_DIR, f"{variant}_lite/{variant}_lite/")
+    
+    for root, dirs, files in os.walk(ray_results_dir):
+        for file in files:
+            if file.endswith("pth"):
+                ckpt_path = os.path.join(root, file)
+                print('loading checkpoint', ckpt_path)
+                runner, _, _, _, _ = init_by_ckpt(ckpt_path, mode=DATASET_MODES.val)
 
+                results_df,results_dict,latents_dict = run_nlb_evaluation_protocol(model=runner.model,run_model_on_numpy_pre=run_model_on_numpy,variant='mc_maze')
+                savepath = ckpt_path.replace('.pth','_latents.h5')
+                print('Saving latents to',savepath)
+                save_to_h5(
+                    latents_dict,
+                    save_path=savepath, #ckpt_path.split('.')[0]+'_latents.h5',
+                    overwrite=True
+                )
+                # print(df)
+                
+                
+    #             pred,latents = run_model_on_numpy_partial(runner.model,spikes_heldin=eval_spikes_heldin)
+    #             print(pred.shape, latents.shape)
+    #             return 
 
 if __name__=="__main__":
-    main()
+    # main()
+    main2()
