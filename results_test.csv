@@ -1,2 +1,0 @@
-,index,co-bps,4shot_id0 co-bps,vel R2,psth R2,fp-bps,dataset,fewshot_learner,path
-0,0,0.3215271227995868,-0.42528149220006206,0.793367553360327,0.5199298407417301,0.22200929047918577,mc_maze_split,sklearn_parallel,"ray_results/mc_maze_lite/mc_maze_lite/tuneNDT_2a6ea18c_97_CHECKPOINT_DIR=._ckpts_mc_maze_,DATA.DATAPATH=_home_kabird_datasets_,DATA.TRAIN_FILENAME=mc_maze_full.h5,DATA._2024-04-22_08-42-54/ckpts/mc_maze_lite.contrast.pth"

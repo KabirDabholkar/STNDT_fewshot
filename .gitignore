@@ -2,6 +2,7 @@
 *.h5
 *.pdf
 *.png
+*.csv
 ckpts/
 data/
 ensemble_results/
@@ -13,6 +14,7 @@ tmp
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
+.vscode/
 *.py[cod]
 *$py.class
 *.pyc
