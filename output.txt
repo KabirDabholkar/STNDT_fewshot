@@ -1,0 +1,1875 @@
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 182 1 182
+head_dim,num_heads,embed_dim: 45 1 45
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+Traceback (most recent call last):
+  File "src/cross_decoding.py", line 139, in <module>
+    r2_matrix, group_matrix = CD.compute_pairwise_latent_r2(max_trials=500, parallel=True, n_jobs=30)
+  File "/home/kabird/cross_decoder/src/cross_decoder/cross_decoder.py", line 195, in compute_pairwise_latent_r2
+    latents = analysis.get_latents()
+  File "src/cross_decoding.py", line 46, in get_latents
+    rates, *_ = self.runner.get_rates(
+  File "/home/kabird/STNDT_fewshot/src/runner.py", line 789, in get_rates
+    loss, _, _, batch_rates, batch_attn_list, batch_layer_outputs = self.model(
+  File "/home/kabird/miniconda3/envs/stndt/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/kabird/miniconda3/envs/stndt/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/kabird/STNDT_fewshot/src/model.py", line 487, in forward
+    ) = self.transformer_encoder(src, spatial_src, src_mask, spatial_src_mask, **kwargs)
+  File "/home/kabird/miniconda3/envs/stndt/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/kabird/miniconda3/envs/stndt/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/kabird/STNDT_fewshot/src/model.py", line 210, in forward
+    src, weights, layer_cost = mod(src, src.permute(2, 1, 0), src_mask=mask, spatial_src_mask=spatial_mask, **kwargs)
+  File "/home/kabird/miniconda3/envs/stndt/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/kabird/miniconda3/envs/stndt/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/kabird/STNDT_fewshot/src/model.py", line 137, in forward
+    spatial_out, spatial_weights, _ = self.spatial_attend(
+  File "/home/kabird/STNDT_fewshot/src/model.py", line 95, in spatial_attend
+    attn_res = self.spatial_self_attn(src, src, src, attn_mask=context_mask, **kwargs)
+  File "/home/kabird/miniconda3/envs/stndt/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/kabird/miniconda3/envs/stndt/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/kabird/miniconda3/envs/stndt/lib/python3.8/site-packages/torch/nn/modules/activation.py", line 1242, in forward
+    attn_output, attn_output_weights = F.multi_head_attention_forward(
+  File "/home/kabird/miniconda3/envs/stndt/lib/python3.8/site-packages/torch/nn/functional.py", line 5441, in multi_head_attention_forward
+    attn_output_weights = torch.bmm(q_scaled, k.transpose(-2, -1))
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 10.90 GiB of which 19.38 MiB is free
+. Including non-PyTorch memory, this process has 10.87 GiB memory in use. Of the allocated memory 10.46 GiB is allocated by PyTorch, and 253.13
+MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:
+True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Completed analysis for mc_maze_20
+----------------------------------------
+Running cross decoding analysis for mc_rtt_20
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+/home/kabird/miniconda3/envs/stndt/lib/python3.8/site-packages/torch/nn/modules/transformer.py:286: UserWarning: enable_nested_tensor is True, b
+ut self.use_nested_tensor is False because encoder_layer.self_attn.batch_first was not True(use batch_first for better inference performance)
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 130 1 130
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+Saved R2 matrix to: /home/kabird/STNDT_fewshot/ray_results/mc_rtt_20_lite_r2_matrix_2.csv
+Completed analysis for mc_rtt_20
+----------------------------------------
+Running cross decoding analysis for area2_bump_20
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+/home/kabird/miniconda3/envs/stndt/lib/python3.8/site-packages/torch/nn/modules/transformer.py:286: UserWarning: enable_nested_tensor is True, b
+ut self.use_nested_tensor is False because encoder_layer.self_attn.batch_first was not True(use batch_first for better inference performance)
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 65 1 65
+head_dim,num_heads,embed_dim: 40 1 40
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+Saved R2 matrix to: /home/kabird/STNDT_fewshot/ray_results/area2_bump_20_lite_r2_matrix_2.csv
+Completed analysis for area2_bump_20
+----------------------------------------
+Running cross decoding analysis for dmfc_rsg_20
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+/home/kabird/miniconda3/envs/stndt/lib/python3.8/site-packages/torch/nn/modules/transformer.py:286: UserWarning: enable_nested_tensor is True, b
+ut self.use_nested_tensor is False because encoder_layer.self_attn.batch_first was not True(use batch_first for better inference performance)
+  warnings.warn(f"enable_nested_tensor is True, but self.use_nested_tensor is False because {why_not_sparsity_fast_path}")
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+head_dim,num_heads,embed_dim: 54 1 54
+head_dim,num_heads,embed_dim: 85 1 85
+init by ckpt mode val
+getting data from h5 mode train
+getting data from h5 mode val
+Saved R2 matrix to: /home/kabird/STNDT_fewshot/ray_results/dmfc_rsg_20_lite_r2_matrix_2.csv
+Completed analysis for dmfc_rsg_20
+----------------------------------------
+All cross decoding analyses completed!
+(stndt) kabird@BionetBrenner:~/STNDT_fewshot$ tmux capture-pane -p > output.txt
+(stndt) kabird@BionetBrenner:~/STNDT_fewshot$ tmux capture-pane -S - -p > output.txt
+

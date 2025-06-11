@@ -22,7 +22,7 @@ from src.runner import Runner
 from src.dataset import SpikesDataset, DATASET_MODES
 
 
-def setup_dataset(runner):
+def setup_dataset(runner,mode=DATASET_MODES.val):
     r"""
     Called by init_by_ckpt() to set up dataset
     Args:
@@ -33,7 +33,9 @@ def setup_dataset(runner):
         heldout_spikes
         forward_spikes
     """
-    test_set = SpikesDataset(runner.config, runner.config.DATA.TRAIN_FILENAME, logger=runner.logger)
+    test_set = SpikesDataset(runner.config,
+                              runner.config.DATA.TRAIN_FILENAME if mode == DATASET_MODES.train else runner.config.DATA.VAL_FILENAME, 
+                              logger=runner.logger)
     runner.logger.info(f"Evaluating on {len(test_set)} samples.")
     test_set.clip_spikes(runner.max_spikes)
     spikes, rates, heldout_spikes, forward_spikes = test_set.get_dataset()
@@ -59,8 +61,9 @@ def init_by_ckpt(ckpt_path, mode=DATASET_MODES.val, data_file=None):
     """
     runner = Runner(checkpoint_path=ckpt_path)
     if data_file is not None:
-        runner.config.merge_from_list(['DATA.TRAIN_FILENAME', str(data_file)])
+        runner.config.merge_from_list(['DATA.TRAIN_FILENAME' if mode == DATASET_MODES.train else 'DATA.VAL_FILENAME', str(data_file)])
     runner.model.eval()
     torch.set_grad_enabled(False)
-    spikes, rates, heldout_spikes, forward_spikes = setup_dataset(runner)
+    print('init by ckpt mode',mode)
+    spikes, rates, heldout_spikes, forward_spikes = setup_dataset(runner,mode=mode)
     return runner, spikes, rates, heldout_spikes, forward_spikes

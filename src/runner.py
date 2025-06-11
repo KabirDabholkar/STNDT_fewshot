@@ -782,8 +782,8 @@ class Runner:
                 max_batch_size = 32  # Define the maximum batch size that fits in memory
                 batch_size = max_batch_size
                 success = False
-                print('Inside runner.get_rates')
-                print_gpu_memory_usage(vars())
+                # print('Inside runner.get_rates')
+                # print_gpu_memory_usage(vars())
                 while not success and batch_size > 1:
                     try:
                         loss, _, _, batch_rates, batch_attn_list, batch_layer_outputs = self.model(

@@ -1,0 +1,50 @@
+# Author: Joel Ye
+# Orginal file available at https://github.com/snel-repo/neural-data-transformers/blob/master/configs/area2_bump.yaml
+# Adapted by Trung Le
+# Modified configs for STNDT
+
+CHECKPOINT_DIR: "./ckpts/area2_bump_20/"
+TENSORBOARD_DIR: "./tb/area2_bump_20/"
+LOG_DIR: "./logs/area2_bump_20/"
+
+DATA:
+  DATAPATH: "/home/kabird/datasets/"
+  TRAIN_FILENAME: 'area2_bump_20_full.h5'
+  VAL_FILENAME: 'area2_bump_20_full.h5'
+
+MODEL:
+  TRIAL_LENGTH: 0
+  LEARNABLE_POSITION: False
+  POSITION:
+    OFFSET: False
+  PRE_NORM: True
+  FIXUP_INIT: True
+  EMBED_DIM: 1
+  NUM_HEADS: 1
+  LOGRATE: True
+  NUM_LAYERS: 4
+  LINEAR_EMBEDDER: True
+  USE_CONTRAST_PROJECTOR: False
+  CONTRAST_LAYER: 'embedder'
+  LAMBDA: 1e-1
+
+TRAIN:
+  LR:
+    WARMUP: 5000
+  WEIGHT_DECAY: 5.0e-05
+  LOG_INTERVAL: 20 #200
+  VAL_INTERVAL: 20
+  CHECKPOINT_INTERVAL: 1000
+  PATIENCE: 1 #2500
+  NUM_UPDATES: 50501
+  MASK_RATIO: 0.25
+  MASK_MODE: "full"
+  DO_CONTRAST: True
+  CONTRAST_MASK_MODE: "full"
+  CONTRAST_MASK_RATIO: 0.05
+  CONTRAST_MASK_TOKEN_RATIO: 0.5
+  CONTRAST_MASK_RANDOM_RATIO: 0.5
+  CONTRAST_MASK_SPAN_RAMP_START: 8000
+  CONTRAST_MASK_SPAN_RAMP_END: 12000
+
+  TUNE_HP_JSON: './configs/area2_bump_20.json' 

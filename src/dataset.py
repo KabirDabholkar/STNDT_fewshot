@@ -152,7 +152,7 @@ class SpikesDataset(data.Dataset):
                 held out spikes (for cosmoothing, None if not available)
             * Note, rates and held out spikes codepaths conflict
         """
-
+        print('getting data from h5 mode',mode)
         with h5py.File(filepath, 'r') as h5file:
             h5dict = {key: h5file[key][()] for key in h5file.keys()}
             if 'eval_spikes_heldin' in h5dict: # NLB data
